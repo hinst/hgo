@@ -7,7 +7,13 @@ echo "$target control: $1"
 
 if [ "$1" = "start" ]
 then
-	nohup $path 2>>error-log.txt 1>>output-log.txt &
+	pid=$(pidof $path)
+	if [[ $? == 0 ]]
+	then
+		echo probably already running $path
+	else
+		nohup $path 2>>error-log.txt 1>>output-log.txt &
+	fi
 fi
 
 if [ "$1" == "stop" ]
@@ -22,6 +28,6 @@ then
 		done
 		echo stopped
 	else
-		echo probably not running
+		echo probably not running $path
 	fi
 fi
