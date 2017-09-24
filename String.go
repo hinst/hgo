@@ -26,3 +26,8 @@ func StrToInt0(text string) (result int) {
 	return
 }
 
+func StrToInt(text string) int {
+	var result, parseResult = strconv.ParseInt(text, 10, 32)
+	AssertResult(parseResult)
+	return int(result)
+}
