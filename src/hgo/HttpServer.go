@@ -14,7 +14,8 @@ func StartHttpServer(address string) *http.Server {
 }
 
 func StopHttpServer(server *http.Server, timeout time.Duration) error {
-	var ctx, _ = context.WithTimeout(context.Background(), timeout)
+	var ctx, cancel = context.WithTimeout(context.Background(), timeout)
+	defer cancel()
 	return server.Shutdown(ctx)
 }
 
