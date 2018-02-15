@@ -11,3 +11,9 @@ func Assert(condition bool) {
 		panic("Assert")
 	}
 }
+
+func AssertWT(condition bool, message func() string) {
+	if !condition {
+		panic(message())
+	}
+}

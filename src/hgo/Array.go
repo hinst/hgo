@@ -1,6 +1,6 @@
 package hgo
 
-// 3 4 0 1 2,  2
+// Example: [3 4 0 1 2], 2
 func GetShiftedIndexes(length, index int) (array []int) {
 	array = make([]int, length)
 	for i := range array {

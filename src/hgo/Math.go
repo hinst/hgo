@@ -9,3 +9,11 @@ func LockIntBetween(a, x, b int) int {
 	}
 	return x
 }
+
+func BoolToInt(x bool) int {
+	if x {
+		return 1
+	} else {
+		return 0
+	}
+}
