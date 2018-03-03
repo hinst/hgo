@@ -5,9 +5,13 @@ func LockIntBetween(a, x, b int) int {
 		x = b - 1
 	}
 	if x < a {
-		x = 0
+		x = a
 	}
 	return x
+}
+
+func CheckIntInRange(a, x, b int) bool {
+	return a <= x && x < b
 }
 
 func BoolToInt(x bool) int {
