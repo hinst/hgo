@@ -17,3 +17,14 @@ func AssertWT(condition bool, message func() string) {
 		panic(message())
 	}
 }
+
+func AssertIntEquals(a, b int) {
+	if a != b {
+		panic(IntToStr(a) + " != " + IntToStr(b))
+	}
+}
+
+func AssertIntInRange(a, x, b int) {
+	AssertWT(a <= x && x < b,
+		func() string { return "Index out of range: " + IntToStr(a) + "," + IntToStr(x) + "," + IntToStr(b) })
+}
